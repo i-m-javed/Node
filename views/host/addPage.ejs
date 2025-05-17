@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { pageTitle}) %>
+  <body class="bg-gray-100 text-gray-800 font-sans pattern-dots">
+    <!-- Header -->
+    <%- include('../partials/nav') %>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Add Your Home</h2>
+
+      <form
+        action="/host/add-home"
+        method="POST"
+        enctype="multipart/form-data"
+        class="space-y-6"
+      >
+        <!-- Title -->
+        <div>
+          <label for="title" class="block text-sm font-medium text-gray-700"
+            >Listing Title</label
+          >
+          <input
+            type="text"
+            id="title"
+            name="name"
+            placeholder="Cozy cottage near the lake"
+            required
+            class="mt-1 w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+          />
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label for="location" class="block text-sm font-medium text-gray-700"
+            >Location</label
+          >
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="City, State, Country"
+            required
+            class="mt-1 w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+          />
+        </div>
+
+        <!-- Price -->
+        <div>
+          <label for="price" class="block text-sm font-medium text-gray-700"
+            >Price per Night (Rs.)</label
+          >
+          <input
+            type="double"
+            id="price"
+            name="price"
+            min="10"
+            step="1"
+            required
+            class="mt-1 w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+          />
+        </div>
+
+        <div>
+          <label for="location" class="block text-sm font-medium text-gray-700"
+            >Rating</label
+          >
+          <input
+            type="double"
+            id="rating"
+            name="rating"
+            placeholder="Please rate your home from 0 to 5"
+            min="0"
+            max="5"
+            required
+            class="mt-1 w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- photo -->
+          <div>
+            <label
+              for="photo"
+              class="block text-sm font-semibold text-gray-800 mb-2"
+            >
+              Upload Photo (jpg, jpeg, png only)
+            </label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/*"
+              required
+              class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-500 file:text-white hover:file:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+            />
+          </div>
+
+          <!-- Rule book -->
+          <div>
+            <label
+              for="pdf"
+              class="block text-sm font-semibold text-gray-800 mb-2"
+            >
+              Upload Rule Book (pdf only)
+            </label>
+            <input
+              type="file"
+              id="pdf"
+              name="pdf"
+              accept="application/pdf"
+              class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-500 file:text-white hover:file:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+            />
+          </div>
+        </div>
+        <!-- Description -->
+        <div>
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700"
+            >Description</label
+          >
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Describe your home, neighborhood, and what makes it unique."
+            rows="5"
+            class="mt-1 w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200"
+          >
+            Submit Listing
+          </button>
+        </div>
+      </form>
+      <div class="text-center mt-10">
+        <a
+          href="/host/host-page"
+          class="inline-block bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition"
+        >
+          Go back
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

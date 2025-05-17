@@ -1,0 +1,63 @@
+@import "tailwindcss";
+.pattern-dots {
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.nav-link {
+  @apply text-gray-600 hover:text-red-500 transition;
+}
+.nav-link.active {
+  @apply text-red-500 font-semibold border-b-2 border-red-500;
+}
+
+.features > span > span {
+  display: block;
+  animation: animateWords 6s infinite ease;
+}
+
+@keyframes animateWords {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-100%);
+  }
+  40% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-300%);
+  }
+  80% {
+    transform: translateY(-400%);
+  }
+  100% {
+    transform: translateY(-500%);
+  }
+}
+
+@media (max-width: 640px) {
+  .features > span > span {
+    font-size: 0.875rem;
+    height: 1.25rem;
+  }
+
+  @keyframes animateWords {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(-200%);
+    }
+    75% {
+      transform: translateY(-300%);
+    }
+    100% {
+      transform: translateY(-400%);
+    }
+  }
+}

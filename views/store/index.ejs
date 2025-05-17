@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { pageTitle: 'Welcome to Airbnb' }) %>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <div class="min-h-screen flex flex-col">
+      <%- include('../partials/nav') %>
+
+      <!-- Hero Section -->
+      <section
+        class="relative bg-white py-15 text-center shadow-md overflow-hidden"
+      >
+        <div class="max-w-5xl mx-auto px-6 z-10 relative">
+          <h1 class="text-5xl md:text-6xl font-extrabold text-red-500 mb-4">
+            Welcome to airbnb
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 mb-8">
+            Find unforgettable stays and unique experiences, anywhere in the
+            world.
+          </p>
+          <div class="space-x-4">
+            <a
+              href="/signup"
+              class="bg-red-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-red-600 transition"
+              >Get Started</a
+            >
+            <a
+              href="/login"
+              class="text-red-500 font-semibold underline hover:text-red-600 transition"
+              >Already have an account?</a
+            >
+          </div>
+        </div>
+
+        <div class="mt-20"><%- include('../partials/features') %></div>
+      </section>
+
+      <!-- Become a Host Section -->
+      <%- include('../partials/becomeHost') %>
+      <!-- How it Works Section -->
+      <%- include('../partials/howItWork') %>
+
+      <!-- Become a Host Section -->
+      <%- include('../partials/madeBy') %>
+
+      <!-- Footer -->
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { pageTitle: 'Host Dashboard' }) %>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <div class="min-h-screen flex flex-col">
+      <%- include('../partials/nav', { user }) %>
+
+      <!-- Host Greeting -->
+      <section class="bg-white py-24 text-center shadow-md">
+        <div class="max-w-5xl mx-auto px-6">
+          <h1 class="text-5xl md:text-6xl font-extrabold text-red-500 mb-6">
+            <span>Welcome ! Host</span>
+            <span
+              class="bg-red-500 px-6 py-2 rounded-full text-white text-4xl md:text-5xl inline-block"
+            >
+              <%= user.firstName %>
+            </span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 mb-8">
+            Manage your listings or create a new one.
+          </p>
+          <div class="space-x-4">
+            <a
+              href="/host/host-page"
+              class="bg-red-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-red-600 transition"
+              >Dashboard</a
+            >
+            <a
+              href="/host/add-page"
+              class="text-red-500 font-semibold underline hover:text-red-600 transition"
+              >Add New Listing</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="text-center p-10 bg-gradient-to-br from-red-50 via-white to-red-100 rounded-lg shadow-md"
+      >
+        <div class="max-w-5xl mx-auto text-center">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Hosting is easier than you think
+          </h2>
+          <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+            Airbnb gives you the tools, support, and exposure to turn your space
+            into extra income — all on your terms.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <!-- Icon Card 1 -->
+            <div class="flex flex-col items-center text-center">
+              <div class="text-5xl mb-4 text-red-500">📅</div>
+
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                Flexible Schedule
+              </h3>
+              <p class="text-sm text-gray-600">
+                Host when you want, as often as you want.
+              </p>
+            </div>
+
+            <!-- Icon Card 2 -->
+            <div class="flex flex-col items-center text-center">
+              <div class="text-5xl mb-4 text-red-500">🌍</div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                Global Reach
+              </h3>
+              <p class="text-sm text-gray-600">
+                Connect with travelers from around the world.
+              </p>
+            </div>
+
+            <!-- Icon Card 3 -->
+            <div class="flex flex-col items-center text-center">
+              <div class="text-5xl mb-4 text-red-500">🕣</div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                Support & Safety
+              </h3>
+              <p class="text-sm text-gray-600">
+                24/7 support and built-in protections for peace of mind.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="/host/add-page"
+            class="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300"
+          >
+            Add New Listing
+          </a>
+        </div>
+      </section>
+
+      <%- include('../partials/madeBy') %>
+
+      <!-- Footer -->
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html>

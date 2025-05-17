@@ -1,0 +1,15 @@
+<section class="text-center py-20 bg-white shadow-inner">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-600 mb-4">
+    Or become a Host
+  </h2>
+  <p class="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
+    Turn your space into extra income. Hosting is easy, secure, and flexible —
+    and Airbnb supports you every step of the way.
+  </p>
+  <a
+    href="<%= user && user.loggedIn && user.userType === 'host' ? '/host/host-page' : '/login' %>"
+    class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full shadow-md transition duration-200"
+  >
+    Start Hosting
+  </a>
+</section>

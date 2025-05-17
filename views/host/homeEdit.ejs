@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { pageTitle: 'Edit ' + home.name }) %>
+
+  <body
+    class="bg-gray-100 text-gray-800 font-sans flex flex-col min-h-screen pattern-dots"
+  >
+    <%- include('../partials/nav') %>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow mt-16 mb-16">
+      <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+        <div class="p-8">
+          <h1 class="text-3xl font-semibold text-center text-yellow-600 mb-8">
+            Edit <%= home.name %>
+          </h1>
+
+          <form
+            action="/host/edit-home/<%= home._id %>"
+            method="POST"
+            enctype="multipart/form-data"
+            class="space-y-6"
+          >
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col">
+                <label for="name" class="text-sm font-medium text-gray-600"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value="<%= home.name %>"
+                  class="mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-600"
+                  required
+                />
+              </div>
+
+              <div class="flex flex-col">
+                <label for="location" class="text-sm font-medium text-gray-600"
+                  >Location</label
+                >
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  value="<%= home.location %>"
+                  class="mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-600"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- photo -->
+              <div>
+                <label for="photo" class="block text-sm text-gray-800 mb-2">
+                  Re-Upload Photo
+                </label>
+                <input
+                  type="file"
+                  id="photo"
+                  name="photo"
+                  accept="image/*"
+                  class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-white hover:file:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+                />
+              </div>
+
+              <!-- Rule book -->
+              <div>
+                <label for="pdf" class="block text-sm text-gray-800 mb-2">
+                  Upload Rule Book (pdf only)
+                </label>
+                <input
+                  type="file"
+                  id="pdf"
+                  name="pdf"
+                  accept="application/pdf"
+                  class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-white hover:file:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col">
+              <label for="description" class="text-sm font-medium text-gray-600"
+                >Description</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                rows="4"
+                class="mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-600"
+              >
+<%= home.description %></textarea
+              >
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col">
+                <label for="price" class="text-sm font-medium text-gray-600"
+                  >Price</label
+                >
+                <input
+                  type="double"
+                  id="price"
+                  name="price"
+                  value="<%= home.price %>"
+                  class="mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-600"
+                  required
+                />
+              </div>
+
+              <div class="flex flex-col">
+                <label for="rating" class="text-sm font-medium text-gray-600"
+                  >Rating</label
+                >
+                <input
+                  type="double"
+                  id="rating"
+                  name="rating"
+                  value="<%= home.rating %>"
+                  class="mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-600"
+                  min="1"
+                  max="5"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <button
+                type="submit"
+                class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+              >
+                Save Changes
+              </button>
+              <a
+                href="/host/edit-page"
+                class="text-yellow-600 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              >
+                Cancel
+              </a>
+            </div>
+            <input type="hidden" name="id" value="<%= home._id %>" />
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

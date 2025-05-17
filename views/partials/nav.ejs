@@ -1,0 +1,193 @@
+<header
+  class="bg-white shadow-sm py-5 border-b border-gray-300 px-8 flex items-center justify-between"
+>
+  <h1 class="text-4xl font-bold text-red-500">
+    <a href="/" class="block red-500 font-bold' %>">airbnb</a>
+  </h1>
+
+  <!-- Hamburger Menu for Mobile -->
+
+  <button
+    class="sm:hidden block text-gray-600 focus:outline-none"
+    onclick="document.getElementById('mobile-nav').classList.toggle('hidden')"
+  >
+    <!-- Add a hamburger icon (simple Unicode or SVG) -->
+    ☰
+  </button>
+
+  <!-- Desktop Navigation -->
+
+  <nav class="space-x-6 text-lg hidden sm:flex">
+    <!-- Same links here -->
+
+    <% if(isLoggedIn) { %> <% if(user.userType === 'guest') { %>
+    <a
+      href="/home"
+      class="transition select-auto px-2 py-1 <%= pageTitle === 'Home' ? 'text-red-500 border-b-2 border-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %>"
+      >Homes</a
+    >
+
+    <a
+      href="/favorites"
+      class="transition px-2 py-1 <%= pageTitle === 'favorites' ? 'text-red-500 border-b-2 border-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %>"
+      >Favorites</a
+    >
+
+    <a
+      href="/reserve"
+      class="transition px-2 py-1 <%= pageTitle === 'Reserve' ? 'text-red-500 border-b-2 border-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %>"
+      >Reserve</a
+    >
+
+    <a
+      href="/bookings"
+      class="transition px-2 py-1 <%= pageTitle === 'Bookings' ? 'text-red-500 border-b-2 border-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %>"
+      >Bookings</a
+    >
+    <%} else if(user.userType === 'host') {%>
+    <a
+      href="/host/host-page"
+      class="transition px-2 py-1 <%= (pageTitle === 'Host' || pageTitle === 'Add-Home' || pageTitle === 'Edit-Delete-Home')? 'text-red-500 border-b-2 border-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %>"
+    >
+      Dashboard</a
+    >
+    <%}%>
+    <form action="/logout" method="POST" class="ml-auto">
+      <button
+        type="submit"
+        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-2 py-1 rounded transition"
+      >
+        Logout
+      </button>
+    </form>
+    <% } else {%> <% if (pageTitle === 'Login') { %>
+    <a
+      href="/login"
+      class="bg-red-500 text-white px-2 py-1 rounded font-bold-500 transition hover:bg-red-600"
+    >
+      Login
+    </a>
+
+    <a
+      href="/signup"
+      class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-2 py-1 rounded font-bold-500"
+    >
+      SignUp
+    </a>
+    <% } else if (pageTitle === 'SignUp') { %>
+    <a
+      href="/login"
+      class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-2 py-1 rounded font-bold-500"
+    >
+      Login
+    </a>
+
+    <a
+      href="/signup"
+      class="bg-red-500 text-white px-2 py-1 rounded font-bold-500 transition hover:bg-red-600"
+    >
+      SignUp
+    </a>
+    <% } else { %>
+    <a
+      href="/login"
+      class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-2 py-1 rounded font-bold-500"
+    >
+      Login
+    </a>
+
+    <a
+      href="/signup"
+      class="bg-red-500 text-white px-2 py-1 rounded font-bold-500 transition hover:bg-red-600"
+    >
+      SignUp
+    </a>
+    <% } %> <% } %>
+  </nav>
+</header>
+
+<!-- Mobile Nav -->
+
+<!-- Mobile Nav -->
+<nav
+  id="mobile-nav"
+  class="sm:hidden bg-white px-8 py-4 space-y-3 text-lg hidden"
+>
+  <% if (isLoggedIn) { %> <% if (user.userType === 'guest') { %>
+  <a
+    href="/home"
+    class="<%= pageTitle === 'Home' ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %> block transition"
+    >Homes</a
+  >
+  <a
+    href="/favorites"
+    class="<%= pageTitle === 'favorites' ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %> block transition"
+    >Favorites</a
+  >
+  <a
+    href="/reserve"
+    class="<%= pageTitle === 'Reserve' ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %> block transition"
+    >Reserve</a
+  >
+  <a
+    href="/bookings"
+    class="<%= pageTitle === 'Bookings' ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %> block transition"
+    >Bookings</a
+  >
+
+  <% } else if (user.userType === 'host') { %>
+  <a
+    href="/host/host-page"
+    class="<%= (pageTitle === 'Host' || pageTitle === 'Add-Home' || pageTitle === 'Edit-Delete-Home') ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500' %> block transition"
+    >Dashboard</a
+  >
+  <% } %>
+
+  <!-- Logout -->
+  <form action="/logout" method="POST">
+    <button
+      type="submit"
+      class="w-full text-left text-gray-600 hover:text-red-500 font-semibold transition"
+    >
+      Logout
+    </button>
+  </form>
+
+  <% } else { %>
+
+  <!-- Not Logged In: Show Login/SignUp -->
+  <% if (pageTitle === 'Login') { %>
+  <a
+    href="/login"
+    class="block bg-red-500 text-white px-4 py-2 rounded transition hover:bg-red-600 font-semibold"
+    >Login</a
+  >
+  <a
+    href="/signup"
+    class="block border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-4 py-2 rounded font-semibold"
+    >SignUp</a
+  >
+  <% } else if (pageTitle === 'SignUp') { %>
+  <a
+    href="/login"
+    class="block border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-4 py-2 rounded font-semibold"
+    >Login</a
+  >
+  <a
+    href="/signup"
+    class="block bg-red-500 text-white px-4 py-2 rounded transition hover:bg-red-600 font-semibold"
+    >SignUp</a
+  >
+  <% } else { %>
+  <a
+    href="/login"
+    class="block border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition px-4 py-2 rounded font-semibold"
+    >Login</a
+  >
+  <a
+    href="/signup"
+    class="block bg-red-500 text-white px-4 py-2 rounded transition hover:bg-red-600 font-semibold"
+    >SignUp</a
+  >
+  <% } %> <% } %>
+</nav>

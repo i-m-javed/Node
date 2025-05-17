@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { pageTitle: 'Terms and Conditions' }) %>
+
+  <body class="bg-gray-100 text-gray-800 font-sans pattern-dots">
+    <div class="min-h-screen flex flex-col">
+      <%- include('../partials/nav') %>
+
+      <main class="flex-grow flex items-center justify-center mt-10 mb-10 px-4">
+        <div class="w-full max-w-3xl bg-white shadow-md rounded-lg p-8">
+          <h1 class="text-3xl font-bold text-red-500 mb-6 text-center">
+            Terms and Conditions
+          </h1>
+
+          <section class="space-y-6 text-sm leading-relaxed text-gray-700">
+            <p>
+              Welcome to airbnb! By creating an account or using our services,
+              you agree to the following terms and conditions.
+            </p>
+
+            <h2 class="text-lg font-semibold text-gray-800">
+              1. User Accounts
+            </h2>
+            <p>
+              You must be at least 18 years old to create an account. You are
+              responsible for maintaining the confidentiality of your login
+              credentials and for all activities that occur under your account.
+            </p>
+
+            <h2 class="text-lg font-semibold text-gray-800">
+              2. Bookings and Hosting
+            </h2>
+            <p>
+              If you are a guest, you agree to pay for all bookings you make. If
+              you are a host, you are responsible for the accuracy of your
+              listings and for honoring confirmed bookings.
+            </p>
+
+            <h2 class="text-lg font-semibold text-gray-800">
+              3. Cancellations and Refunds
+            </h2>
+            <p>
+              Cancellation policies vary by listing. Please review them
+              carefully before booking. Airbnb reserves the right to mediate
+              disputes and issue refunds at our discretion.
+            </p>
+
+            <h2 class="text-lg font-semibold text-gray-800">
+              4. Code of Conduct
+            </h2>
+            <p>
+              All users must act respectfully, lawfully, and in accordance with
+              local regulations. Harassment, discrimination, or misuse of the
+              platform may result in suspension.
+            </p>
+
+            <h2 class="text-lg font-semibold text-gray-800">
+              5. Modifications
+            </h2>
+            <p>
+              Airbnb reserves the right to update these terms at any time.
+              Continued use of the platform indicates your acceptance of any
+              changes.
+            </p>
+
+            <p class="mt-6">
+              If you have any questions about these terms, please
+              <a href="/contact" class="text-red-500 hover:underline"
+                >contact us</a
+              >.
+            </p>
+          </section>
+
+          <div class="mt-8 text-center">
+            <a href="/signup" class="text-red-500 hover:underline text-sm">
+              Back to Signup
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html>
